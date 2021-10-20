@@ -1,7 +1,7 @@
 ---
 title: pybullet-planning源码解析
 date: 2021-10-15 00:14:36
-tags:
+tags: [Pybullet]
 ---
 
 我们尝试来阅读一下pybullet-planning中和ik、planning相关的源码。

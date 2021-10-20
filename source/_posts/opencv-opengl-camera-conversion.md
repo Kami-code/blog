@@ -1,7 +1,7 @@
 ---
 title: openGL和openCV中的摄像机参数的转化
 date: 2021-10-15 00:24:02
-tags:
+tags: [OpenCV,OpenGL,Camera]
 ---
 
 本文章的主题为研究openGL和openCV中的摄像机参数的转化。<!-- more -->
