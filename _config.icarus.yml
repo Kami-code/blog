@@ -205,7 +205,7 @@ widgets:
         # Author's current location
         location: Shanghai, China
         # URL or path to the avatar image
-        avatar: /img/me.jpg
+        avatar: /img/avatar.jpg
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
