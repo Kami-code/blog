@@ -44,7 +44,7 @@ $ source ~/catkin_ws/devel/setup.bash #刷新坏境
 
 ![img](moveit-configuration/wps17.jpg) 
 
-根据https://github.com/ysl208/iRoPro/issues/59，我们修改原先的catkin_build指令，修改为catkin build -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.7m。换句话说，ROS的catkin默认的是用python2.7去编译的，哪怕我们安装了python3-empy它依然报错。告诉它使用python3后这个报错就解决了。
+根据[这里](https://github.com/ysl208/iRoPro/issues/59)，我们修改原先的catkin_build指令，修改为catkin build -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.7m。换句话说，ROS的catkin默认的是用python2.7去编译的，哪怕我们安装了python3-empy它依然报错。告诉它使用python3后这个报错就解决了。
 
 ![img](moveit-configuration/wps18.jpg) 
 
@@ -56,7 +56,7 @@ $ source ~/catkin_ws/devel/setup.bash #刷新坏境
 
 ![img](moveit-configuration/wps20.jpg) 
 
-它提示我们找不到pyconfig.h，根据这篇博客(https://blog.csdn.net/arcers/article/details/91547138)的提示，我先使用sudo find / -name pyconfig.h，发现在路径/usr/include/python3.8下存在pyconfig.h，原来是解决问题1的时候复制的路径/usr/include/python3.7m根本不存在，把命令改为
+它提示我们找不到pyconfig.h，根据这篇[博客](https://blog.csdn.net/arcers/article/details/91547138)的提示，我先使用sudo find / -name pyconfig.h，发现在路径/usr/include/python3.8下存在pyconfig.h，原来是解决问题1的时候复制的路径/usr/include/python3.7m根本不存在，把命令改为
 
 `catkin build -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.8`
 
@@ -64,7 +64,7 @@ $ source ~/catkin_ws/devel/setup.bash #刷新坏境
 
  
 
-接下来我们使用命令roslaunch panda_moveit_config demo.launch rviz_tutorial:=true，这里会再次遇到一个问题https://answers.ros.org/question/384900/failed-to-lunch-this-command/即可解决。
+接下来我们使用命令roslaunch panda_moveit_config demo.launch rviz_tutorial:=true，这里会再次遇到一个问题，根据此[问题](https://answers.ros.org/question/384900/failed-to-lunch-this-command/)即可解决。
 
  
 
