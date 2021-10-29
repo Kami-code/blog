@@ -22,7 +22,7 @@ The whole pipeline is as follows:
 
  <!-- more -->
 
-Because of the fact that the project is still undergoing, the part I and part VI will NOT be described detailedly.
+Because of the fact that the project is still ongoing, the part I and part VI will NOT be described detailedly.
 
 ## **1.The dataset**
 
