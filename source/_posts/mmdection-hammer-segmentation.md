@@ -4,23 +4,21 @@ date: 2021-10-29 17:53:31
 tags: [mmdection, segmentation, deeplearning]
 ---
 
-# **MMDection**
-
 The first time for me to construct a custom dataset and apply it in the mmdection.
 
 The whole pipeline is as follows:
 
-I. Collect and prepare the raw dataset.
+**I. Collect and prepare the raw dataset.**
 
-II. Convert the raw dataset into COCO style.
+**II. Convert the raw dataset into COCO style.**
 
-III. Add and movify the mask-rcnn configuration in mmdection API to fit our requirement.
+**III. Add and movify the mask-rcnn configuration in mmdection API to fit our requirement.**
 
-IV. Train the model by mmdection.
+**IV. Train the model by mmdection.**
 
-V. Evaluate and visualize the test dataset.
+**V. Evaluate and visualize the test dataset.**
 
-VI. Modify the result into mask image so that we can insert it smoothly in our pipeline.
+**VI. Modify the result into mask image so that we can insert it smoothly in our pipeline.**
 
  <!-- more -->
 
@@ -28,7 +26,7 @@ Because of the fact that the project is still undergoing, the part I and part VI
 
 ## **1.The dataset**
 
-![img](mmdection-hammer-segmentation/wps6.jpg)![img](mmdection-hammer-segmentation/wps7.jpg) 
+![](mmdection-hammer-segmentation/wps6.jpg)![](mmdection-hammer-segmentation/wps7.jpg) 
 
 As shown above, it’s a sample from my created dataset which contains a rgb image and corresponding mask. The foreground is a tool(the hammer), and the background contains other unrelated things. At the very beginning when there was no relationship to how to training, it is of top priority to create enough data and split them into train, validate and test dataset. We collected 4535 imgs, 464 imgs and 454 imgs for training, validating and evaluating.
 
@@ -81,13 +79,13 @@ def main():
 ...
 ```
 
-![image-20211029175539492](mmdection-hammer-segmentation/image-20211029175539492.png)
+![](mmdection-hammer-segmentation/image-20211029175539492.png)
 
 The structure is from the [blog](https://patrickwasp.com/create-your-own-coco-style-dataset/). You can refer to it to create your custom dataset. What I want to mention is if we have a lot of mask of different objects on a single image(though not in our current settings), the annotation_id should start from 0 and increase for each mask, while the meaning of image_id is easily understood. By the way, it seems no need to make annotation_id the same as “id” in CATEGORIES, so making it start from zero is necessary.
 
 After running the script of [pycococreator](https://github.com/waspinator/pycococreator/blob/master/examples/shapes/shapes_to_coco.py), we get a single json file named “instance_train2022.json”. We can use the visualizer script provided in that repo to visualize to check whether we successfully get a COCO json file. COCO will contain the information which provided in the mask.png file using contour algorithm.(Finally, they will be stored in polygons format.) 
 
-![img](mmdection-hammer-segmentation/wps10.jpg) 
+![](mmdection-hammer-segmentation/wps10.jpg) 
 
 Since now, we have successfully got our first COCO dataset!
 
@@ -99,7 +97,7 @@ Since now, we have successfully got our first COCO dataset!
 
 To use it, I mainly refer to the proceduce in [this zhihu blog](https://zhuanlan.zhihu.com/p/344841580). But it also contains some frustrating bug, which I will explain below.
 
-![image-20211029175614140](mmdection-hammer-segmentation/image-20211029175614140.png)
+![](mmdection-hammer-segmentation/image-20211029175614140.png)
 
 This is the files need to add and modify if we want to add a new dataset to train by mask_rcnn. (marked in green means the newly-added file and marked in brown means the file needed to be modified)
 
@@ -301,8 +299,8 @@ if __name__ == '__main__':
     show_result_pyplot(model, img, result, score_thr=0.3)
 ```
 
-![img](mmdection-hammer-segmentation/wps11.jpg)![img](mmdection-hammer-segmentation/wps12.jpg) 
+![](mmdection-hammer-segmentation/wps11.jpg)![](mmdection-hammer-segmentation/wps12.jpg) 
 
-![img](mmdection-hammer-segmentation/wps13.jpg)![img](mmdection-hammer-segmentation/wps14.jpg) 
+![](mmdection-hammer-segmentation/wps13.jpg)![](mmdection-hammer-segmentation/wps14.jpg) 
 
 Thank God we finally successfully train the segmentation network.
