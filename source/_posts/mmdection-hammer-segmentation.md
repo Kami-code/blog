@@ -275,11 +275,11 @@ DONE (t=0.05s).
 
 
 
-Some results are as shown in the sheet. In this article, we don’t detailedly find out each number means.
+Some results are as shown in the sheet. In this article, we don’t detailedly explain what each statistic means.
 
  
 
-## 5. **Eval and visualize our model**
+## 5. **Evaluate and visualize our model**
 
 We can run the following script to visualize our model.
 
