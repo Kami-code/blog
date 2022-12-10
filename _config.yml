@@ -5,7 +5,7 @@ keywords: null
 author: Kami-code
 language: en
 timezone: ''
-url: https://kami-code.com
+url: https://kami-code.com/blog
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
 pretty_urls:
@@ -62,5 +62,5 @@ ignore: null
 theme: icarus
 deploy:
   type: git
-  repo: https://github.com/Kami-code/Kami-code.github.io.git
+  repo: https://github.com/Kami-code/blog
   branch: master
